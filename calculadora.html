@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .calculadora {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            max-width: 300px;
+            margin: auto;
+        }
+
+        .pantalla {
+            grid-column: span 4;
+            background: #2d4f73;
+            color: white;
+            font-size: 2rem;
+            text-align: right;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 15px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.1s ease-in-out;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .amarillo { background-color: #f5b800; }
+        .rosa { background-color: #ff4f87; color: white; }
+        .azul { background-color: #3fd0d4; color: white; }
+        .grande { grid-column: span 2; }
+    </style>
+</head>
+<body>
+
+    <div class="calculadora">
+        <div id="pantalla" class="pantalla">0</div>
+        <button class="amarillo" onclick="borrar()">C</button>
+        <button class="amarillo" onclick="agregar('-')">-</button>
+        <button class="rosa" onclick="agregar('+')">+</button>
+        <button class="rosa" onclick="agregar('*')">x</button>
+
+        <button class="amarillo" onclick="agregar('7')">7</button>
+        <button class="amarillo" onclick="agregar('8')">8</button>
+        <button class="amarillo" onclick="agregar('9')">9</button>
+        <button class="rosa" onclick="agregar('/')">÷</button>
+
+        <button class="amarillo" onclick="agregar('4')">4</button>
+        <button class="amarillo" onclick="agregar('5')">5</button>
+        <button class="amarillo" onclick="agregar('6')">6</button>
+        <button class="rosa" onclick="agregar('%')">%</button>
+
+        <button class="amarillo" onclick="agregar('1')">1</button>
+        <button class="amarillo" onclick="agregar('2')">2</button>
+        <button class="amarillo" onclick="agregar('3')">3</button>
+        <button class="azul" onclick="calcular()">=</button>
+
+        <button class="amarillo grande" onclick="agregar('0')">0</button>
+        <button class="amarillo" onclick="agregar('.')">.</button>
+    </div>
+
+    <script>
+        let pantalla = document.getElementById('pantalla');
+        let operacion = '';
+
+        function agregar(valor) {
+            if (pantalla.textContent === '0' && valor !== '.') {
+                operacion = valor;
+            } else {
+                operacion += valor;
+            }
+            pantalla.textContent = operacion;
+        }
+
+        function borrar() {
+            operacion = '';
+            pantalla.textContent = '0';
+        }
+
+        function calcular() {
+            try {
+                operacion = eval(operacion).toString();
+                pantalla.textContent = operacion;
+            } catch {
+                pantalla.textContent = 'Error';
+            }
+        }
+    </script>
+
+</body>
+</html>
