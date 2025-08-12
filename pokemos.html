@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <h1>Pokemons</h1>
+    <button id="btnpokemon">Mostrar pokemons</button>
+    <div id="ContenedorPokemons" class="grid"></div>
+
+    <script>
+        document.getElementById("btnpokemon").addEventListener("click", function(){
+            fetch('https://pokeapi.co/api/v2/pokemon?limit=10')
+            .then(res => res.json())
+            .then(data => {
+                let contenedor = document.getElementById("ContenedorPokemons");
+                cnotenedor.innerHTML = "";
+                data.results.array.forEach(pokemon => {
+                    fetch(pokemon.url)
+                    .then(res => res.json())
+                    .then(info=> {
+                    let tarjeta = document.createElement("card");
+                    tarjeta.classList.add("card");
+                    tarjeta.innerHTML = 
+                    <img src="${info.sprites.front_default}" alt="${pokemon.name}">
+                            <h3>${pokemon.name}</h3>;
+
+                        contenedor.appendChild(tarjeta);
+                    });
+            });
+        });
+});
+</script>
+        
+    </script>
+</body>
+</html>

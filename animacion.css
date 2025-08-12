@@ -1,0 +1,43 @@
+@keyframes spin{
+    from {transform: rotate(0deg);}
+    to { transfrom: rotate(260deg);}
+}
+
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-30px); }
+    60% { transform: translateY(-15px); }
+}
+
+@keyframes pulse-effect {
+    0% { transform: scale(1)}
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.animated-box {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, #2498e6, #10e3ff);
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.animated-box.spinning {
+    animation: spin 2s linear infinite;
+}
+
+.animated-box.boucing {
+    animation: bounce 1s ease infinite;
+}
+.animated-box.pulsing {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
