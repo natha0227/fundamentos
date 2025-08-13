@@ -56,27 +56,32 @@
     <div class="calculadora">
         <div id="pantalla" class="pantalla">0</div>
         <button class="amarillo" onclick="borrar()">C</button>
+        <button class="amarillo" onclick="borrarUltimo()">Del</button>
         <button class="amarillo" onclick="agregar('-')">-</button>
         <button class="rosa" onclick="agregar('+')">+</button>
-        <button class="rosa" onclick="agregar('*')">x</button>
+
 
         <button class="amarillo" onclick="agregar('7')">7</button>
         <button class="amarillo" onclick="agregar('8')">8</button>
         <button class="amarillo" onclick="agregar('9')">9</button>
-        <button class="rosa" onclick="agregar('/')">÷</button>
+        <button class="rosa" onclick="agregar('*')">x</button>
+        
 
         <button class="amarillo" onclick="agregar('4')">4</button>
         <button class="amarillo" onclick="agregar('5')">5</button>
         <button class="amarillo" onclick="agregar('6')">6</button>
-        <button class="rosa" onclick="agregar('%')">%</button>
+        <button class="rosa" onclick="agregar('/')">÷</button>
+        
 
         <button class="amarillo" onclick="agregar('1')">1</button>
         <button class="amarillo" onclick="agregar('2')">2</button>
         <button class="amarillo" onclick="agregar('3')">3</button>
-        <button class="azul" onclick="calcular()">=</button>
+        <button class="rosa" onclick="agregar('%')">%</button>
+        
 
         <button class="amarillo grande" onclick="agregar('0')">0</button>
         <button class="amarillo" onclick="agregar('.')">.</button>
+        <button class="azul" onclick="calcular()">=</button>
     </div>
 
     <script>
@@ -96,6 +101,11 @@
             operacion = '';
             pantalla.textContent = '0';
         }
+        function borrarUltimo(){
+            pantalla.textContent=pantalla.textContent.slice(0,-1) || "0";
+            document.getElementById('pantalla');
+        }
+
 
         function calcular() {
             try {
