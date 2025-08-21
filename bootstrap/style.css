@@ -1,0 +1,14 @@
+.banner{
+    background: #4e2a9b;
+background: linear-gradient(90deg,rgba(78, 42, 155, 1) 0%, rgba(83, 201, 237, 1) 100%);
+width: 100%;
+height: 300px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.banner h1{
+    margin: 0%;
+    font-size: 2rem;
+}
